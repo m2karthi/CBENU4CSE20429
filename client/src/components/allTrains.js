@@ -18,7 +18,7 @@ function AllTrainsPage() {
   }, []);
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '100vh' }}>
       <h2>All Trains Schedule</h2>
       <List>
         {trains.map(train => (
