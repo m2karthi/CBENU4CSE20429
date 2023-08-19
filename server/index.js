@@ -95,12 +95,13 @@ async function processTrainData() {
 
 // CORS setup to allow requests from the frontend
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Replace with your frontend URL
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3001'); 
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     next();
 });
 
+// Get all Trains
 app.get('/train-schedule', async (req, res) => {
     try {
         const processedTrains = await processTrainData();
@@ -110,6 +111,7 @@ app.get('/train-schedule', async (req, res) => {
     }
 });
 
+// Get Single Train
 app.get('/train-schedule/:trainNumber', async (req, res) => {
     const { trainNumber } = req.params;
     try {
